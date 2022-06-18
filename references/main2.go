@@ -1,7 +1,8 @@
-package main
+package uselesss
 
 import (
 	"log"
+	"os"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -19,8 +20,8 @@ var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 	),
 )
 
-func main() {
-	bot, err := tgbotapi.NewBotAPI("5428271492:AAGCAeJPxZlJW6p6jv9htw8MIWZvHD4leHM")
+func useless() {
+	bot, err := tgbotapi.NewBotAPI(os.Getenv("5428271492:AAGCAeJPxZlJW6p6jv9htw8MIWZvHD4leHM"))
 	if err != nil {
 		log.Panic(err)
 	}
@@ -34,29 +35,34 @@ func main() {
 
 	updates := bot.GetUpdatesChan(u)
 
+	// Loop through each update.
 	for update := range updates {
-		if update.Message != nil { // If we got a message
-			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
+		// Check if we've gotten a message update.
+		if update.Message != nil {
+			// Construct a new message from the given chat ID and containing
+			// the text that we received.
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
 
-			wplay_generic := "Canal POWEROSO"
-			msg := tgbotapi.NewMessage(update.Message.Chat.ID, wplay_generic)
-			//msg.ReplyToMessageID = update.Message.MessageID
-			bot.Send(msg)
-
+			// If the message was open, add a copy of our numeric keyboard.
 			switch update.Message.Text {
 			case "open":
 				msg.ReplyMarkup = numericKeyboard
+
 			}
+
 			// Send the message.
 			if _, err = bot.Send(msg); err != nil {
 				panic(err)
 			}
 		} else if update.CallbackQuery != nil {
+			// Respond to the callback query, telling Telegram to show the user
+			// a message with the data received.
 			callback := tgbotapi.NewCallback(update.CallbackQuery.ID, update.CallbackQuery.Data)
 			if _, err := bot.Request(callback); err != nil {
 				panic(err)
 			}
 
+			// And finally, send a message containing the data received.
 			msg := tgbotapi.NewMessage(update.CallbackQuery.Message.Chat.ID, update.CallbackQuery.Data)
 			if _, err := bot.Send(msg); err != nil {
 				panic(err)
