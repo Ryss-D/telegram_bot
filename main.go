@@ -6,7 +6,9 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-var comoDepositar string = "Tenemos muchos métodos de pago en línea o pago en efectivo muy cerca de ti ver nuestros métodos de recarga:\v Link video \v Link video"
+var comoDepositar string = "Tenemos muchos métodos de pago "
+
+//var comoDepositar string = "Tenemos muchos métodos de pago en línea o pago en efectivo muy cerca de ti ver nuestros métodos de recarga:\v Link video \v Link video"
 
 var comoApostar string = "Acá te enseaños como apostar mira el video:\vLink video"
 
@@ -21,16 +23,16 @@ var comoRetirar string = "Resumen sobre como retirar"
 var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 	tgbotapi.NewInlineKeyboardRow(
 		tgbotapi.NewInlineKeyboardButtonData("¿Como depositar?", comoDepositar),
-		tgbotapi.NewInlineKeyboardButtonData("¿Como apostar", comoApostar),
+		//tgbotapi.NewInlineKeyboardButtonData("¿Como apostar", comoApostar),
 	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("Bono Debut", bonoDebut),
-		tgbotapi.NewInlineKeyboardButtonData("¿Como descargar la app?", comoDescargar),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("Tutoriales", tutorialesLink),
-		tgbotapi.NewInlineKeyboardButtonData("¿Como retirar mi saldo?", comoRetirar),
-	),
+	//tgbotapi.NewInlineKeyboardRow(
+	//tgbotapi.NewInlineKeyboardButtonData("Bono Debut", bonoDebut),
+	//tgbotapi.NewInlineKeyboardButtonData("¿Como descargar la app?", comoDescargar),
+	//),
+	//tgbotapi.NewInlineKeyboardRow(
+	//tgbotapi.NewInlineKeyboardButtonData("Tutoriales", tutorialesLink),
+	//tgbotapi.NewInlineKeyboardButtonData("¿Como retirar mi saldo?", comoRetirar),
+	//),
 )
 
 func main() {
@@ -47,7 +49,6 @@ func main() {
 	u.Timeout = 60
 
 	updates := bot.GetUpdatesChan(u)
-
 	for update := range updates {
 		if update.Message != nil { // If we got a message
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
@@ -55,7 +56,7 @@ func main() {
 			wplay_generic := "Canal POWEROSO"
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, wplay_generic)
 			//msg.ReplyToMessageID = update.Message.MessageID
-			bot.Send(msg)
+			//bot.Send(msg)
 
 			switch update.Message.Text {
 			case "open":
