@@ -6,42 +6,6 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-var numericInlineKeyboard = tgbotapi.NewInlineKeyboardMarkup(
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("¿Como depositar?", comoDepositarShort),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("¿Como apostar", comoApostar),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("Bono Debut", bonoDebutShort),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("¿Como descargar la app?", comoDescargarShort),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("Tutoriales", tutorialesLink),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("¿Como retirar mi saldo?", comoRetirar),
-	),
-)
-
-var numericKeyboard = tgbotapi.NewReplyKeyboard(
-	tgbotapi.NewKeyboardButtonRow(
-		tgbotapi.NewKeyboardButton("¿Como depositar?"),
-		tgbotapi.NewKeyboardButton("¿Como apostar"),
-	),
-	tgbotapi.NewKeyboardButtonRow(
-		tgbotapi.NewKeyboardButton("Bono Debut"),
-		tgbotapi.NewKeyboardButton("¿Como descargar la app?"),
-	),
-	tgbotapi.NewKeyboardButtonRow(
-		tgbotapi.NewKeyboardButton("Tutoriales"),
-		tgbotapi.NewKeyboardButton("¿Como retirar mi saldo?"),
-	),
-)
-
 func main() {
 	bot, err := tgbotapi.NewBotAPI("5428271492:AAGCAeJPxZlJW6p6jv9htw8MIWZvHD4leHM")
 	if err != nil {
@@ -70,18 +34,18 @@ func main() {
 				msg.ReplyMarkup = numericInlineKeyboard
 			case "other":
 				msg.ReplyMarkup = numericKeyboard
-			case "¿Como depositar?":
-				msg.Text = comoDepositar
-			case "¿Como apostar":
-				msg.Text = comoApostar
-			case "Bono Debut":
-				msg.Text = bonoDebut
-			case "¿Como descargar la app?":
-				msg.Text = comoDescargar
-			case "Tutoriales":
-				msg.Text = tutorialesLink
-			case "¿Como retirar mi saldo?":
-				msg.Text = comoRetirar
+			case comoDepositar.question:
+				msg.Text = comoDepositar.fullAnswer
+			case comoApostar.question:
+				msg.Text = comoApostar.fullAnswer
+			case bonoDebut.question:
+				msg.Text = bonoDebut.fullAnswer
+			case comoDescargar.question:
+				msg.Text = comoDescargar.fullAnswer
+			case tutoriales.question:
+				msg.Text = tutoriales.fullAnswer
+			case comoRetirar.question:
+				msg.Text = comoRetirar.fullAnswer
 			}
 			// Send the message.
 			if _, err = bot.Send(msg); err != nil {
