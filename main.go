@@ -49,10 +49,12 @@ var numericKeyboard = tgbotapi.NewReplyKeyboard(
 	tgbotapi.NewKeyboardButtonRow(
 		tgbotapi.NewKeyboardButton("¿Como depositar?"),
 		tgbotapi.NewKeyboardButton("¿Como apostar"),
-		tgbotapi.NewKeyboardButton("Bono Debut"),
 	),
 	tgbotapi.NewKeyboardButtonRow(
+		tgbotapi.NewKeyboardButton("Bono Debut"),
 		tgbotapi.NewKeyboardButton("¿Como descargar la app?"),
+	),
+	tgbotapi.NewKeyboardButtonRow(
 		tgbotapi.NewKeyboardButton("Tutoriales"),
 		tgbotapi.NewKeyboardButton("¿Como retirar mi saldo?"),
 	),
