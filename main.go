@@ -2,8 +2,11 @@ package main
 
 import (
 	"log"
+
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
+
+var genericMessage = "¡Bienvenidos al Canal más POWEROSO de Telegram! 🔥⚡\n Wplay.co te estará acompañando de formas interactivas para que te conviertas en un crack de las apuestas ⚽🃏 \n ¿Qué deseas aprender?"
 
 type doubt struct {
 	question    string
@@ -14,42 +17,42 @@ type doubt struct {
 
 var comoDepositar = doubt{
 	question:    "¿Cómo depositar",
-	fullAnswer:  "Tenemos muchos métodos de pago en línea o pago en efectivo muy cerca de ti ver nuestros métodos de recarga:\v Link video \v Link video",
+	fullAnswer:  "Tenemos muchos métodos de pago en línea o pago en efectivo muy cerca de ti ver nuestros métodos de recarga: \n https://www.youtube.com/watch?v=cwVw3B0fh2Y&list=PLyxCM60Pf1ztnA9sf7AHZrcQQBrE6Zcfl&index=2 \n https://www.wplay.co/mas/ayuda/depositos-y-retiros/",
 	shortAnswer: "Tenemos muchos métodos de pago \v Link video \v Link video",
 	link:        "link",
 }
 
 var comoApostar = doubt{
 	question:    "¿Cómo apostar",
-	fullAnswer:  "Acá te enseñamos como apostar mira el video",
+	fullAnswer:  "Acá te enseaños como apostar mira el video: \n https://www.youtube.com/watch?v=cnYbcq8Q7Bk&list=PLyxCM60Pf1ztnA9sf7AHZrcQQBrE6Zcfl \n https://www.wplay.co/mas/ayuda/como-apostar-en-wplay-co/",
 	shortAnswer: "Acá te enseñamos como apostar mira el video",
 	link:        "link",
 }
 
 var bonoDebut = doubt{
 	question:    "Bono Debut",
-	fullAnswer:  "El bono debut aplica para usuarios nuevos donde la primera recarga debe ser igual o mayor a $10.000.\vPara mayor información te invitamos a ingresar a los términos y condiciones en 👉🏼 https://www.wplay.co/mas/ayuda/200k-bono-debut-wplay/ 👍🏼",
+	fullAnswer:  "El bono debut aplica para usuarios nuevos donde la primera recarga debe ser igual o mayor a $10.000. \n Para mayor información te invitamos a ingresar a los términos y condiciones en 👉🏼 https://www.wplay.co/mas/ayuda/200k-bono-debut-wplay/ 👍🏼",
 	shortAnswer: "Esta es la info sobre bono debut",
 	link:        "link",
 }
 
 var comoDescargar = doubt{
 	question:    "¿Cómo descargar",
-	fullAnswer:  "¿Cómo puedo descargar la App?\vPara descargar la App desde iOS ingresa aquí: https://apps.apple.com/co/app/id1490941885\vPara descargar la App desde Android ingresa aquí: https://play.google.com/store/apps/details?id=com.wplay.sports",
+	fullAnswer:  "¿Cómo puedo descargar la App? \n Para descargar la App desde iOS ingresa aquí: https://apps.apple.com/co/app/id1490941885 \n Para descargar la App desde Android ingresa aquí: https://play.google.com/store/apps/details?id=com.wplay.sports",
 	shortAnswer: "Como descargar",
 	link:        "link",
 }
 
 var tutoriales = doubt{
 	question:    "Tutoriales",
-	fullAnswer:  "Tutoriales",
+	fullAnswer:  "En wplay.co te brindamos varios tutoriales para el manejo de la plataforma \n Te invitamos a ingresar a https://www.wplay.co/mas/tutoriales-wplay/ donde podrás visualizar la información.",
 	shortAnswer: "Tutoriales",
 	link:        "link",
 }
 
 var comoRetirar = doubt{
 	question:    "¿Cómo retirar",
-	fullAnswer:  "Resumen de como retirar",
+	fullAnswer:  "En Wplay.co contamos gran variedad de medios de retiro \n Te invitamos a ingresar https://blog.wplay.co/retiro-de-tus-ganancias-en-wplay-co/ donde podrás visualizar los puntos autorizados para retirar y los respectivos pasos en cada uno de ellos.",
 	shortAnswer: "Resumen de como retirar",
 	link:        "link",
 }
@@ -107,8 +110,7 @@ func main() {
 		if update.Message != nil { // If we got a message
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
 
-			wplay_generic := "Canal POWEROSO"
-			msg := tgbotapi.NewMessage(update.Message.Chat.ID, wplay_generic)
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, genericMessage)
 			//msg.ReplyToMessageID = update.Message.MessageID
 			//bot.Send(msg)
 
