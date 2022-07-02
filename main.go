@@ -16,14 +16,14 @@ type doubt struct {
 }
 
 var comoDepositar = doubt{
-	question:    "¿Cómo depositar",
+	question:    "¿Cómo depositar?",
 	fullAnswer:  "Tenemos muchos métodos de pago en línea o pago en efectivo muy cerca de ti ver nuestros métodos de recarga: \n https://www.youtube.com/watch?v=cwVw3B0fh2Y&list=PLyxCM60Pf1ztnA9sf7AHZrcQQBrE6Zcfl&index=2 \n https://www.wplay.co/mas/ayuda/depositos-y-retiros/",
 	shortAnswer: "Tenemos muchos métodos de pago \v Link video \v Link video",
 	link:        "link",
 }
 
 var comoApostar = doubt{
-	question:    "¿Cómo apostar",
+	question:    "¿Cómo apostar?",
 	fullAnswer:  "Acá te enseaños como apostar mira el video: \n https://www.youtube.com/watch?v=cnYbcq8Q7Bk&list=PLyxCM60Pf1ztnA9sf7AHZrcQQBrE6Zcfl \n https://www.wplay.co/mas/ayuda/como-apostar-en-wplay-co/",
 	shortAnswer: "Acá te enseñamos como apostar mira el video",
 	link:        "link",
@@ -37,7 +37,7 @@ var bonoDebut = doubt{
 }
 
 var comoDescargar = doubt{
-	question:    "¿Cómo descargar",
+	question:    "¿Cómo descargar?",
 	fullAnswer:  "¿Cómo puedo descargar la App? \n Para descargar la App desde iOS ingresa aquí: https://apps.apple.com/co/app/id1490941885 \n Para descargar la App desde Android ingresa aquí: https://play.google.com/store/apps/details?id=com.wplay.sports",
 	shortAnswer: "Como descargar",
 	link:        "link",
@@ -51,7 +51,7 @@ var tutoriales = doubt{
 }
 
 var comoRetirar = doubt{
-	question:    "¿Cómo retirar",
+	question:    "¿Cómo retirar?",
 	fullAnswer:  "En Wplay.co contamos gran variedad de medios de retiro \n Te invitamos a ingresar https://blog.wplay.co/retiro-de-tus-ganancias-en-wplay-co/ donde podrás visualizar los puntos autorizados para retirar y los respectivos pasos en cada uno de ellos.",
 	shortAnswer: "Resumen de como retirar",
 	link:        "link",
