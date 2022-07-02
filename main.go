@@ -1,11 +1,13 @@
 package main
 
 import (
+	"os"
 	"log"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+const telegramTokenEnv string = "TELEGRAM_BOT_TOKEN"
 var genericMessage = "¡Bienvenidos al Canal más POWEROSO de Telegram! 🔥⚡\n Wplay.co te estará acompañando de formas interactivas para que te conviertas en un crack de las apuestas ⚽🃏 \n ¿Qué deseas aprender?"
 
 type doubt struct {
@@ -93,7 +95,7 @@ var numericKeyboard = tgbotapi.NewReplyKeyboard(
 )
 
 func main() {
-	bot, err := tgbotapi.NewBotAPI("5428271492:AAGCAeJPxZlJW6p6jv9htw8MIWZvHD4leHM")
+	bot, err := tgbotapi.NewBotAPI(os.Getenv(telegramTokenEnv))
 	if err != nil {
 		log.Panic(err)
 	}
